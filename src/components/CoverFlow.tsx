@@ -35,25 +35,36 @@ const CoverFlow = ({
       gsap.killTweensOf(mesh.position);
       gsap.killTweensOf(mesh.rotation);
 
-      gsap.to(mesh.position, {
-        x: x,
-        z: activeIndex == index ? -3 : 0,
-        duration: 0.7,
-        ease: "power2.out",
-      });
+      const z = activeIndex == index ? -3 : 0;
 
-      gsap.to(mesh.position, {
-        z: z2,
-        delay: 0.3,
-        duration: 0.5,
-        ease: "back.inOut",
-      });
+      if (
+        Math.abs(mesh.position.x - x) > 0.01 ||
+        Math.abs(mesh.position.z - z) > 0.01
+      ) {
+        gsap.to(mesh.position, {
+          x: x,
+          z: z,
+          duration: 0.7,
+          ease: "power2.out",
+        });
+      }
 
-      gsap.to(mesh.rotation, {
-        y: rotY,
-        duration: 0.3,
-        ease: "power2.out",
-      });
+      if (Math.abs(mesh.position.z - z2) > 0.01) {
+        gsap.to(mesh.position, {
+          z: z2,
+          delay: 0.3,
+          duration: 0.5,
+          ease: "back.inOut",
+        });
+      }
+
+      if (Math.abs(mesh.rotation.y - rotY) > 0.01) {
+        gsap.to(mesh.rotation, {
+          y: rotY,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      }
     });
   }, [activeIndex, spacing, zOffset]);
 
@@ -72,6 +83,7 @@ const CoverFlow = ({
   }, [currentIndex]);
 
   const materials = useMemo(() => {
+    console.log("usemmeomom");
     return textures.map((texture) => {
       const material = new THREE.MeshStandardMaterial({
         side: THREE.DoubleSide,
@@ -140,7 +152,7 @@ const CoverFlow = ({
           rotation-y={Math.PI}
           material={material}
         >
-          <planeGeometry args={[10, 10, 32, 32]} />
+          <planeGeometry args={[10, 10, 1, 1]} />
         </mesh>
       ))}
 

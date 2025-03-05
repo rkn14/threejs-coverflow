@@ -54,13 +54,11 @@ const Scene = ({
         <planeGeometry args={[1000, 1000]} />
         <MeshReflectorMaterial
           visible={true}
-          blur={[700, 700]}
-          mixBlur={0.5}
           mixStrength={1.5}
           mixContrast={0.85}
           resolution={1024}
           mirror={1}
-          depthScale={1}
+          depthScale={4}
           minDepthThreshold={0}
           maxDepthThreshold={5}
           depthToBlurRatioBias={0.25}
