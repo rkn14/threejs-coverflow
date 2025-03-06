@@ -1,5 +1,10 @@
 # Description
-This project is a React component using @react-three/fiber and @react-three/drei to render a 3D scene with a reflective floor based on MeshReflectorMaterial. It also includes an animated sphere that moves through space.
+
+This project is a CoverFlow example.
+Three.js, React, react-three/fiber, @react-three/drei.
 
 # Demo here
-https://rkn14.com/demos/github/reflector-test/
+
+https://rkn14.com/demos/github/threejs-coverflow/
+
+![Mon Logo](assets/screenshot.jpg)

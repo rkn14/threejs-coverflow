@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Slider from "@mui/material/slider";
 
 import Scene from "./Scene";
+import Footer from "./components/Footer";
 
 const App = () => {
   const texturePaths: string[] = [];
@@ -41,6 +42,7 @@ const App = () => {
           />
         </div>
       </Suspense>
+      <Footer />
     </div>
   );
 };
